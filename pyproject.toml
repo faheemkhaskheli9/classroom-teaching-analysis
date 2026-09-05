@@ -3,3 +3,27 @@ name = "classroom-teaching-analysis"
 version = "0.1.0"
 description = "Classroom Teaching Method Analysis"
 requires-python = ">=3.10"
+dependencies = [
+    # <5: some opencv-python 5.0.0 wheels ship without the objdetect module
+    # (no cv2.HOGDescriptor/CascadeClassifier), which later phases need.
+    "opencv-python-headless>=4.9,<5",
+    "numpy>=1.26",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+classroom-analysis = "classroom_analysis.cli:main"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

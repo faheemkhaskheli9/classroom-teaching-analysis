@@ -1,1 +1,8 @@
-# Fill in with the exact package versions used once implementation starts.
+# <5: some opencv-python 5.0.0 wheels ship without the objdetect module
+# (no cv2.HOGDescriptor/CascadeClassifier), which later phases need.
+opencv-python-headless>=4.9,<5
+numpy>=1.26
+pyyaml>=6.0
+
+# dev / test
+pytest>=7.0

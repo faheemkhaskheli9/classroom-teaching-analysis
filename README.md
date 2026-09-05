@@ -4,7 +4,7 @@
 > This is an original, from-scratch build. It is not affiliated with, and does not
 > contain any code, prompts, data, or business logic from, any employer or client.
 
-![status](https://img.shields.io/badge/status-planned-lightgrey)
+![status](https://img.shields.io/badge/status-in%20progress-yellow)
 ![python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 
@@ -90,10 +90,14 @@ No proprietary, employer-owned, or client-identifiable data is used in this proj
 
 ## 9. Training / Execution
 
-Document the commands used to run training, ingestion, or the main pipeline, e.g.:
+Phase 1 ships video ingestion: frames are pulled from a video file one at a
+time (never loading the whole clip into memory) at a config-driven sample
+rate, with optional resize and BGR/RGB output:
 
 ```bash
-python -m src.main --config configs/default.yaml
+pip install -r requirements.txt
+PYTHONPATH=src python -m classroom_analysis.cli extract-frames \
+    examples/sample_clip.mp4 --config configs/frame_extraction.yaml
 ```
 
 ## 10. Evaluation

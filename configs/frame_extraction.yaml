@@ -1,0 +1,7 @@
+# Frame-extraction settings for Phase 1 video ingestion.
+# Loaded by: python -m classroom_analysis.cli extract-frames <video> --config <this file>
+frame_extraction:
+  sample_rate_hz: 2.0
+  resize_width: 320
+  resize_height: 240
+  output_format: bgr24
