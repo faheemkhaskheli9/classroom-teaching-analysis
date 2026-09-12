@@ -13,6 +13,11 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=7.0"]
+# Real YOLO person-detection backend (configs/detection.yaml, backend: yolo).
+# Not installed by default: it pulls in torch and downloads pretrained
+# weights on first use. The default 'hog' backend (configs/detection_demo.yaml)
+# needs none of that -- see classroom_analysis.detection.
+yolo = ["ultralytics>=8.0"]
 
 [project.scripts]
 classroom-analysis = "classroom_analysis.cli:main"

@@ -6,3 +6,9 @@ pyyaml>=6.0
 
 # dev / test
 pytest>=7.0
+
+# Optional: pip install -e .[yolo] (adds ultralytics + torch) to use the
+# real YOLO person-detection backend (configs/detection.yaml, backend: yolo).
+# Not installed by default -- see classroom_analysis.detection and
+# configs/detection_demo.yaml for the offline 'hog' backend used by tests
+# and the sample script.

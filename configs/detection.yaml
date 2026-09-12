@@ -1,0 +1,13 @@
+# Person-detection settings for Phase 1 (real YOLO backend).
+# Loaded by: classroom_analysis.config.load_detection_config
+#
+# Requires the optional 'ultralytics' dependency (pip install -e .[yolo]),
+# which downloads pretrained weights on first use. For a fully offline,
+# no-download alternative see configs/detection_demo.yaml (backend: hog).
+detection:
+  backend: yolo
+  model: yolov8n.pt
+  confidence_threshold: 0.5
+  nms_iou_threshold: 0.45
+  person_class_id: 0
+  device: cpu

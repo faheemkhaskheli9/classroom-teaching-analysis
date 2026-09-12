@@ -12,6 +12,22 @@
       "console": "integratedTerminal"
     },
     {
+      "name": "Detect persons: sample clip (mock/offline backend)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/detect_persons_demo.py",
+      "args": [
+        "examples/sample_clip.mp4",
+        "--detection-config",
+        "configs/detection_demo.yaml",
+        "--save-dir",
+        "examples/detections"
+      ],
+      "cwd": "${workspaceFolder}",
+      "env": { "PYTHONPATH": "${workspaceFolder}/src" },
+      "console": "integratedTerminal"
+    },
+    {
       "name": "Pytest: all tests",
       "type": "debugpy",
       "request": "launch",

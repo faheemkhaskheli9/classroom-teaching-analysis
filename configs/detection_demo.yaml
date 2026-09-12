@@ -1,0 +1,11 @@
+# Offline demo config: OpenCV's built-in HOG+SVM pedestrian detector.
+#
+# NOTE (mock): this is an explicit, CPU-only stand-in for the real YOLO
+# backend (configs/detection.yaml) -- it ships with opencv-python, needs no
+# pretrained-weight download and no network access, so scripts/detect_persons_demo.py
+# can run end-to-end in any environment. Point it at configs/detection.yaml
+# instead (with ultralytics installed) to run real YOLO inference.
+detection:
+  backend: hog
+  confidence_threshold: 0.3
+  nms_iou_threshold: 0.45

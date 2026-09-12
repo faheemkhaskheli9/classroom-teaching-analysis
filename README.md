@@ -100,6 +100,18 @@ PYTHONPATH=src python -m classroom_analysis.cli extract-frames \
     examples/sample_clip.mp4 --config configs/frame_extraction.yaml
 ```
 
+Phase 1 also ships person detection behind a swappable backend
+(`classroom_analysis.detection`): a real YOLO backend (`configs/detection.yaml`,
+needs `pip install -e .[yolo]`) and an offline OpenCV HOG+SVM backend used as
+a CPU-only, no-download mock stand-in (`configs/detection_demo.yaml`).
+Confidence threshold and NMS IoU are configurable in both. Run the demo
+script to detect persons on the sample clip and save annotated frames:
+
+```bash
+PYTHONPATH=src python scripts/detect_persons_demo.py \
+    examples/sample_clip.mp4 --save-dir examples/detections
+```
+
 ## 10. Evaluation
 
 Document evaluation metrics and how to reproduce them here (see `docs/evaluation.md`).
